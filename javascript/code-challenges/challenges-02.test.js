@@ -187,13 +187,13 @@ const snorlaxAbilities = {
 const extractAbilities = (arr) => {
   // Solution code here...
   let nameAbility = arr.map((objectarr) => {
-    return { name: objectarr.name };
+    return objectarr.ability.name;
 
 
   });
 
   return nameAbility;
-}; extractAbilities(snorlaxAbilities.abilities);
+};
 
 
 /* ------------------------------------------------------------------------------------------------
