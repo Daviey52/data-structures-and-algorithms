@@ -52,15 +52,12 @@ Write a function named checkValues that takes in an object and a value and retur
 ------------------------------------------------------------------------------------------------ */
 
 const checkValues = (obj, value) => {
-  Object.values(obj).forEach(() => {
-    if (value) {
-      return true;
+  let result = false;
 
-    } else {
-      return false;
-    }
-  });
+  Object.values(obj).forEach(val => val === value ? result = true : '');
   // Solution code here...
+
+  return result;
 
 };
 
@@ -83,17 +80,11 @@ HR has asked you to change the data to make it easier to print so that it looks 
 
 ------------------------------------------------------------------------------------------------ */
 
-const updateNumbers = (obj) => {
-  // Solution code here...
-  let newArray = [];
-  Object.entries(obj).forEach((entry) => {
-    newArray.push(entry.name);
+const updateNumbers = (obj) => Object.keys(obj).map(key => `${key}: ${obj[key]}`);
+// Solution code here...
 
-  });
-  console.log(newArray);
-  return newArray;
 
-};
+
 
 
 
@@ -169,6 +160,20 @@ hasChildrenValues(characters, 'Sansa') will return false
 
 const hasChildrenValues = (arr, character) => {
   // Solution code here...
+  let startChildren = 0;
+
+  arr.forEach((person) => {
+    if (person.name === character) {
+      Object.keys(person).forEach((key, index) => {
+        if (key === 'children') {
+          startChildren = Object.values(person)[index].length;
+        }
+
+      });
+    }
+  });
+  return startChildren ? true : false;
+
 
 };
 
