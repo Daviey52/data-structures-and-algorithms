@@ -9,6 +9,7 @@ Write a function named returnTen, takes in a string and uses split and splice to
 
 function returnTen(str) {
   // Solution code here...
+
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -89,24 +90,17 @@ const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
   // Solution code here...
-  // let sum = 0;
-
-  let oneStore = stores[0];
-  // console.log(oneStore, 'one store');
-  // let totalHouryArray = stores.map((store, index) => {
-
-  for (let i = 1; i < stores.length - 1; i++) {
-
-    for (let j = 0; j < stores[i].length; j++) {
-      // console.log(oneStore[j], stores[i][j]);
-
+  const hourlyTotalArray = [];
+  for (let i in stores[0]) {
+    let hourlyTotal = 0;
+    for (let j in stores) {
+      hourlyTotal += stores[j][i];
     }
+    hourlyTotalArray.push(hourlyTotal);
   }
-  // console.log('oneStore', oneStore);
 
+  return hourlyTotalArray;
 };
-
-// return hourlyTotalArray;
 
 
 
@@ -122,6 +116,14 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 
 const salesData = (hours, data) => {
   // Solution code here...
+  const salesOverview = [];
+  data.forEach((cookiesTotal, index) => {
+    salesOverview.push({
+      sales: `${cookiesTotal} cookies`,
+      time: hours[index],
+    });
+  });
+  return salesOverview;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -147,12 +149,7 @@ const errands = [
 
 const howManyTreats = (arr) => {
   // Solution code here...
-  let itemSum = 0;
-  arr.map((item) => {
-    item.quantity += itemSum;
-    console.log(item.quantity);
-  });
-  return itemSum;
+  return arr[2].items[1].quantity;
 };
 
 /* ------------------------------------------------------------------------------------------------
