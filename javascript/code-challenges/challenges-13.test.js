@@ -101,11 +101,16 @@ Write a function named allHappy that takes in an array of strings and returns a 
 
 const allHappy = (arr) => {
   // Solution code here...
-  let arrStr = [];
-  arr.forEach((word) => {
-    arrStr.push(word.includes(':)'));
-  });
-  return arrStr;
+  let word =
+
+    arr.every((word) => {
+      if (word.includes(':)')) {
+        return word;
+
+      }
+
+    });
+  return word;
 
 };
 
