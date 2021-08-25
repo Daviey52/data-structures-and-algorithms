@@ -8,7 +8,7 @@ Write a function named longestString that takes in an array of strings and retur
 
 const longestString = (arr) => {
   // Solution code here...
-  let largest = 0;
+  let largest = -1;
   let strLenght = 0;
   arr.map((str, idx) => {
     if (str.length > strLenght) {
@@ -69,6 +69,7 @@ For example, (123) 456-7890 returns 1234567890
 
 const standardizePhoneNumbers = (arr) => {
   // Solution code here...
+  return arr.map((number) => `${number.substring(1, 4)}${number.substring(6, 9)}${number.substring(10)}`);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -81,16 +82,9 @@ For example, 'abcdefg' returns 'bdf'
 
 const onlyOddChars = (str) => {
   // Solution code here...
-  let oddletters = [];
-  let oddNumber = str[0];
-  for (let i = 0; i < str.length; i++)
-    if (str.charAt(i) !== str[0]) {
-      oddletters.push(oddNumber = str[i]);
-    }
-
-
-
-  return oddNumber;
+  return str.split('')
+    .filter((num, idx) => idx % 2 === 1)
+    .join('');
 };
 
 /* ------------------------------------------------------------------------------------------------
