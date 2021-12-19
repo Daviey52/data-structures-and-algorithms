@@ -22,8 +22,13 @@ class LinkedList:
 
     def includes(self, value):
         node = Node(value)
-        pass
+        while node != None:
+            if node.value == node.value:
+                return True
+            else:
+                return False
 
-    def to_string(self):
-        # method body here
-        pass
+    def to_string(self, value):
+        node = Node(value)
+        while node:
+            return str(node.value)
