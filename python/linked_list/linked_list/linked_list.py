@@ -28,7 +28,13 @@ class LinkedList:
             else:
                 return False
 
-    def to_string(self, value):
-        node = Node(value)
-        while node:
-            return str(node.value)
+    def to_string(self):
+        pass
+        result = ""
+
+        current = self.head
+        while current:
+            result += f"{ {current.value} } ->"
+            current = current.next
+            result += f"None"
+            return result
