@@ -38,3 +38,12 @@ class LinkedList:
             current = current.next
             result += f"None"
             return result
+
+    def append():
+        pass
+
+    def insert_before():
+        pass
+
+    def insert_After():
+        pass
