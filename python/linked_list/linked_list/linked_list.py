@@ -38,3 +38,23 @@ class LinkedList:
             current = current.next
             result += f"None"
             return result
+
+    def append(self, value):
+        node = Node(value)
+        if self.head is None:
+            self.head = node
+            return
+        last_Node = self.head
+        while last_Node.next:
+            last_Node = last_Node.next
+            last_Node = node
+
+    def insert_before(self, newNode, value):
+        node = Node(newNode)
+        node.next = Node(value).next = node
+
+    def insert_After(self, newNode, value):
+        before_new_node = Node(value)
+        node = Node(newNode)
+        node.next = Node(value).next = before_new_node
+        before_new_node.next = node

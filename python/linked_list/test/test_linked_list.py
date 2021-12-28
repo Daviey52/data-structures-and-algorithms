@@ -79,3 +79,36 @@ def test_to_string():
     ll.insert("BMW")
     ll.to_string()
     assert ll.head.value == "{ BMW } ->"
+
+
+def test_append():
+    ll = LinkedList()
+    node1 = Node("Honda")
+    ll.head = node1
+    node2 = Node("Tesla")
+    node1.next = node2
+    ll.insert("BMW")
+    ll.append("Camaro")
+    assert ll.includes("Camaro")
+
+
+def test_Insert_before():
+    ll = LinkedList()
+    node1 = Node("Honda")
+    ll.head = node1
+    node2 = Node("Tesla")
+    node1.next = node2
+    ll.insert("BMW")
+    ll.insert_before(node2.next, "Camaro")
+    assert ll.includes("Camaro")
+
+
+def test_Inser_After():
+    ll = LinkedList()
+    node1 = Node("Honda")
+    ll.head = node1
+    node2 = Node("Tesla")
+    node1.next = node2
+    ll.insert("BMW")
+    ll.insert_After(node2.next, "Toyota")
+    assert ll.includes("Toyota")
