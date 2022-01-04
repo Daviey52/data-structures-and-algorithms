@@ -114,7 +114,6 @@ def test_Inser_After():
     expected = ll.to_string
     assert expected == "BMW -> Honda -> Tesla -> Camaro -> NULL"
 
-
 def test_zip_lists():
     l1 = LinkedList()
     l2 = LinkedList()
@@ -130,3 +129,6 @@ def test_zip_lists():
 
     ll.zip_lists(l1, l2)
     assert ll == l1 and l2
+    ll.insert_After(node2.next, "Toyota")
+    assert ll.includes("Toyota")
+
