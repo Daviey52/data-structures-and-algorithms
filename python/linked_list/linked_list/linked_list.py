@@ -71,3 +71,23 @@ class LinkedList:
                 new_node.next = current.next
                 current.next = new_node
             current = current.next
+
+    def zip_lists(self, list1, list2):
+        curr1 = list1.head
+        curr2 = list2.head
+
+        while curr1 and curr2:
+            # if curr1.next == None:
+            #     curr1.next == curr2
+            # else:
+            curr1_next = curr1.next
+            # if curr2.next == None:
+            #     curr2_next = curr1
+            curr2_next = curr1.next
+
+            curr2.next = curr1_next
+            curr1.next = curr2
+
+            curr1 = curr1_next
+            curr2 = curr2_next
+            list2.head = curr2
