@@ -111,4 +111,5 @@ def test_Inser_After():
     node1.next = node2
     ll.insert("BMW")
     ll.insert_After(node2.next, "Camaro")
-    assert ll.includes("Camaro")
+    expected = ll.to_string
+    assert expected == "BMW -> Honda -> Tesla -> Camaro -> NULL"
