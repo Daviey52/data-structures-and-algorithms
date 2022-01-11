@@ -39,13 +39,13 @@ class LinkedList:
             result += f"None"
             return result
 
-    def append(self, value):
+    def append_method(self, value):
         node = Node(value)
         if self.head is None:
             self.head = node
-        else:
-            current = self.head
-        while current:
+            return
+        current = self.head
+        while current.next:
             current = current.next
             current.next = node
 
@@ -73,21 +73,15 @@ class LinkedList:
             current = current.next
 
     def zip_lists(self, list1, list2):
-        curr1 = list1.head
-        curr2 = list2.head
+        zipped_list = LinkedList()
+        current1 = list1.head
+        current2 = list2.head
 
-        while curr1 and curr2:
-            # if curr1.next == None:
-            #     curr1.next == curr2
-            # else:
-            curr1_next = curr1.next
-            # if curr2.next == None:
-            #     curr2_next = curr1
-            curr2_next = curr1.next
-
-            curr2.next = curr1_next
-            curr1.next = curr2
-
-            curr1 = curr1_next
-            curr2 = curr2_next
-            list2.head = curr2
+        while current1 or current2:
+            if current1:
+                zipped_list.append(current1.value)
+                current1 = current1.next
+            if current2:
+                zipped_list.append(current2.value)
+                current2 = current2.next
+        return zipped_list
