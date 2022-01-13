@@ -134,3 +134,6 @@ def test_zip_lists():
 
     ll.zip_lists(l1, l2)
     assert ll == l1 and l2
+    ll.insert_After(node2.next, "Toyota")
+    assert ll.includes("Toyota")
+
