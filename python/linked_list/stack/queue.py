@@ -1,19 +1,21 @@
-from node import Node
+from linked_list.linked_list import Node
 
 
 class Queue:
-    def __init__(self, front=None):
+    def __init__(self, front=None, queuelenght=0, tail=None):
         self.front = front
+        self.queuelenght = queuelenght
+        self.tail = tail
 
     def enqueue(self, value):
         node = Node(value)
-        if self.front:
+        if self.tail is None:
             self.front = node
+            self.queuelenght = self.queuelenght + 1
         else:
-            curr = self.front
-            while curr.next != None:
-                curr = curr.next
-            curr.next = node
+            self.tail.next = node(value)
+            self.last = self.last.next
+            self.queuelenght = self.queuelenght + 1
 
     def isEmpty(self):
         if self.front is None:
@@ -23,20 +25,19 @@ class Queue:
 
     def dequeue(self):
         try:
-            if self.front:
+            if self.front is None:
                 raise Exception("Queue is Empty")
             else:
-                node = self.front
+                temp = self.front.value
                 self.front = self.front.next
-                node_data = node.value
-                del node
-                return node_data
+                self.queuelenght = self.queuelenght - 1
+                return temp
         except Exception as e:
             print(str(e))
 
     def peek(self):
         try:
-            if self.front:
+            if self.front is None:
                 raise Exception("Queue is empty")
             else:
                 return self.front.value

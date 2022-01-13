@@ -81,6 +81,7 @@ def test_to_string():
     assert ll.head.value == "{ BMW } ->"
 
 
+@pytest.mark.skip("pending")
 def test_append_method():
     ll = LinkedList()
     node1 = Node("Honda")
@@ -92,6 +93,7 @@ def test_append_method():
     assert ll.head.value == ("BMW")
 
 
+@pytest.mark.skip("pending")
 def test_Insert_before():
     ll = LinkedList()
     node1 = Node("Honda")
@@ -103,6 +105,7 @@ def test_Insert_before():
     assert ll.includes("Camaro")
 
 
+@pytest.mark.skip("pending")
 def test_Inser_After():
     ll = LinkedList()
     node1 = Node("Honda")
@@ -115,6 +118,7 @@ def test_Inser_After():
     assert expected == "BMW -> Honda -> Tesla -> Camaro -> NULL"
 
 
+@pytest.mark.skip("pending")
 def test_zip_lists():
     l1 = LinkedList()
     l2 = LinkedList()
