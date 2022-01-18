@@ -1,6 +1,7 @@
 from stack.stack import Stack
 from stack.queue import Queue
 from stack.stack import CustomError
+from stack.stack import Pseudo_Queue
 import pytest
 
 
@@ -121,3 +122,36 @@ def test_empty_queue():
 def test_exception():
     queue = Queue()
     assert queue.peek() == None
+
+
+def test_psedo_enqueue():
+    p = Pseudo_Queue()
+    p.enqueue(1)
+    p.enqueue(2)
+    assert p.stack_1.stacklength == 2
+    assert p.stack_1.peek() == 2
+
+
+def test_empty_psedo_queue():
+    p = Pseudo_Queue()
+    assert p.stack_1.stacklength == 0
+    assert p.stack_2.stacklength == 0
+
+
+def test_psedo_dequeue():
+    p = Pseudo_Queue()
+    p.enqueue(1)
+    p.enqueue(2)
+    assert p.stack_1.stacklength == 2
+    assert p.stack_2.stacklength == 0
+    assert p.stack_1.peek() == 2
+    p.dequeue()
+    assert p.stack_2.peek() == 1
+    assert p.stack_1.stacklength == 0
+    assert p.stack_2.stacklength == 2
+
+
+@pytest.mark.skip("pending")
+def test_empty_dequeue():
+    p = Pseudo_Queue()
+    assert p.dequeue() == IndexError("can't deque from an empty queue!")
