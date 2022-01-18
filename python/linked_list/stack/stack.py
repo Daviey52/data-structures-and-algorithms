@@ -53,12 +53,38 @@ class Stack:
             print(str(e))
 
 
-s = Stack()
-# s.push(1)
-# s.push(2)
+class Pseudo_Queue:
+    def __init__(self, value=None):
+        self.value = value
+        self.stack_1 = Stack()
+        self.stack_2 = Stack()
 
-# print(s)
+    def enqueue(self, value):
+        self.value = value
+        self.stack_1.push(value)
+
+    def dequeue(self):
+        if self.stack_1.stacklength == 0:
+            raise IndexError("can't deque from an empty queue!")
+
+        while self.stack_1.stacklength != 0:
+            last_stack_1_node = self.stack_1.pop()
+            self.stack_2.push(last_stack_1_node)
+
+
+p = Pseudo_Queue()
+p.enqueue(2)
+p.enqueue(3)
+print(p.stack_1.peek())
+print(p.stack_1.stacklength)
+print(p.stack_2.stacklength)
+p.dequeue()
+print(p.stack_2.peek())
+print(p.stack_1.stacklength)
+print(p.stack_2.stacklength)
+# s.push(1)
+# print(s.value)
 ##print(s.isEmpty())
-print(s.pop())
+# print(s.pop())
 # print(s.peek())
 # print(s.isEmpty)

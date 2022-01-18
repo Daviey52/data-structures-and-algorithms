@@ -1,53 +1,29 @@
-# Stacks and Queues
+# Pseudo queue
 <!-- Short summary or background information -->
-Create a Stack class that has a top property. It creates an empty Stack when instantiated
-The class should have the following methods- Push(), pop() ,peek(), isEmpty
-
-Create a Queue class that has a front property. It creates an empty Queue when instantiated.
-The class should have the following methods dequeue() ,peek(),isempty(),enqueue()
+ Create a new class called pseudo queue.
+ Do not use an existing Queue.
+ Instead, this PseudoQueue class will implement our standard queue interface (the two methods listed below),
+ Internally, utilize 2 Stack instances to create and manage the queue
 
 ## Challenge
 <!-- Description of the challenge -->
-### stack Methods should
+### pseudo Queue Methods should
 
-1. push
-Arguments: value
-adds a new node with that value to the top of the stack with an O(1) Time performance.
-2. pop
-Arguments: none
-Returns: the value from node from the top of the stack
-Removes the node from the top of the stack
-Should raise exception when called on empty stack
-3. peek
-Arguments: none
-Returns: Value of the node located at the top of the stack
-Should raise exception when called on empty stack
-4. isempty
-Arguments: none
-Returns: Boolean indicating whether or not the stack is empty.
+### enqueue
 
-### Queue methods should
+  Arguments: value
+Inserts value into the PseudoQueue, using a first-in, first-out approach.
 
-1. enqueue
-Arguments: value
-adds a new node with that value to the back of the queue with an O(1) Time performance.
-2. dequeue
-Arguments: none
-Returns: the value from node from the front of the queue
-Removes the node from the front of the queue
-Should raise exception when called on empty queue
-3. peek
-Arguments: none
-Returns: Value of the node located at the front of the queue
-Should raise exception when called on empty stack
-4. isempty
-Arguments: none
-Returns: Boolean indicating whether or not the queue is empty
+### dequeue
+
+  Arguments: none
+  Extracts a value from the PseudoQueue, using a first-in, first-out approach.h
 
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
 created the needed classes and included methods to achieve the needed objectives.
-big 0(1) for both classes and for both space and time.
+for enqueue big 0(n) it is dependend on the number of nodes being enqued in the stacks
+for dequeue big 0(1) no additional space is being used by this method.
 
 ## API
 <!-- Description of each method publicly available to your Stack and Queue-->
