@@ -43,3 +43,31 @@ class Queue:
                 return self.front.value
         except Exception as e:
             print(str(e))
+
+
+class AnimalShelter:
+    def __init__(self, front=None, queuelenght=0, tail=None):
+        self.front = front
+        self.queuelenght = queuelenght
+        self.tail = tail
+
+    def enqueue(self, animal="dog" or "cat"):
+        self.animal = animal
+        node = Node(animal)
+        if self.tail is None:
+            self.front = node
+            self.queuelenght = self.queuelenght + 1
+        else:
+            self.tail.next = node(animal)
+            self.last = self.last.next
+            self.queuelenght = self.queuelenght + 1
+
+    def dequeue():
+        pass
+
+
+p = AnimalShelter()
+p.enqueue("cat")
+p.enqueue("dog")
+p.enqueue("dog")
+print(p.front.animal)
