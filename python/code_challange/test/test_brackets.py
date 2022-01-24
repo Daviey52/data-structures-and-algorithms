@@ -1,4 +1,4 @@
-from bracket.brackets import Brackets
+from stack_queue_brackets.brackets import Brackets
 import pytest
 
 def test_bracket_1():
