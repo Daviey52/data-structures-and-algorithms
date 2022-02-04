@@ -1,3 +1,6 @@
+from stack.queue import Queue
+from Trees.node import Node
+
 class BinaryTree:
     def __init__(self,root=None):
         self.root = root
