@@ -1,7 +1,8 @@
 from Trees.node import Node
 from Trees.binary_tree import BinaryTree
-#from Trees.binary_search_tree import BinarySearchTree
+from Trees.binary_search_tree import BinarySearchTree
 import pytest
+
 
 
 def test_empty_bt():
@@ -120,3 +121,22 @@ def test_maximum_Node_value():
 
     maximum_value = bt.maximum_value(bmw)
     assert maximum_value == 20
+
+def test_add_node():
+    node1 = Node(21)
+    bst = BinarySearchTree(node1)
+    bst.add(25)
+    assert bst.root.right.value == 25
+
+
+def test_bst_contains():
+    node1 = Node(1)
+    node2 = Node(2)
+    node3 = Node(3)
+    node1.left = node3
+    node1.right =node2
+
+    bst = BinarySearchTree(node1)
+
+    assert bst.contains(3) == True
+

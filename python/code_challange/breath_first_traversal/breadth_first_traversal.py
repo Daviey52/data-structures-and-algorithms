@@ -3,9 +3,26 @@ from Trees.binary_tree import BinaryTree
 from stack.queue import Queue
 from Trees.node import Node
 
-def breadth_first(tree):
+def Breadth_first(tree):
+    if tree is None:
+        return
 
-    queue = Queue
-    visited = []
+    queue = Queue()
+    queue.enqueue(tree.root)
+    node = Node()
 
-    pass
+    while tree:
+        node =queue.dequeue(tree.root)
+
+        if node.left is not None:
+            queue.enqueue(node.left)
+        if node.right is not None:
+            queue.enqueue(node.right)
+
+    return (queue)
+
+
+
+
+
+
