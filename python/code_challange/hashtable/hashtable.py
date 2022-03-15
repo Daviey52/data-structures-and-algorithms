@@ -1,27 +1,39 @@
+from linked_list.linked_list import LinkedList
+
 class Hashtable:
     pass
-
     def __init__(self, size=10024):
         self.size = size
         self.bucket = size *[None]
 
         # Initializer
 
-    def add(self, key, value):
-        pass
+    def hash(self, key):
+        sum = 0
+        for ch in key:
+             sum += ord(ch)
 
-        # Add
-        # Arguments: key, value
-        # Returns: nothing
-        # This method should hash the key, and set the key and value pair in the table, handling collisions as needed.
-        # Should a given key already exist, replace its value from the value argument given to this method.
+        primed = sum * 97
+
+        index = primed % self.size
+        return index
+
+    def add(self, key, value):
+        index = self.hash(key)
+
+        if not self.bucket[index]:
+            self.bucket[index] = LinkedList()
+        new_value = [key ,value]
+        self.bucket[index].insert(new_value)
+
 
     def get(self, key):
-        pass
+        index = self.hash(key)
+        if self.bucket[index]:
+            LinkedList = self.bucket[index]
+            currrent = LinkedList.head
 
-        # get
-        # Arguments: key
-        # Returns: Value associated with that key in the table
+
 
     def contains():
         pass
@@ -30,39 +42,22 @@ class Hashtable:
         # Arguments: key
         # Returns: Boolean, indicating if the key exists in the table already.
 
-    def hash(self, key):
-
-        'Cat'
-
-        'aCt'
-        sum = 0
-
-        for ch in key:
-            # convert to ascii Cat
-            # if first char, multiply by 11
-            # if third char multiuply by 7
-             sum += ord(ch)
-             # C - 67
-             # a - 97
-             # t - 116
-
-             # sum 280
-        primed = sum * 97
-        # 27160
-        index = primed % self.size
-
-        # 27160 - primed
-        # 536
-
-        return index
-
-
-        # hash
-        # Arguments: key
-        # Returns: Index in the collection for that key
 
     def keys():
         pass
 
         # keys
         # Returns: Collection of keys
+
+def repeated_word(sentence):
+    word = sentence.split(" ")
+    array1= []
+    for ch in word:
+        if ch in array1:
+
+            return ch
+        else:
+            array1.append(ch.lower())
+
+
+
