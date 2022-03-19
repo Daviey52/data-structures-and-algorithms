@@ -1,5 +1,3 @@
-
-
 class Hashtable:
     pass
     def __init__(self, size=1024):
@@ -18,10 +16,14 @@ class Hashtable:
         index = self.hash(key)
         if self.bucket[index] == None:
             self.bucket[index] = [[key,value],]
-        self.bucket[index].append([key, value])
+        self.bucket[index].append([key,value])
 
     def get(self, key):
-        pass
+        index = self.hash(key)
+        x = dict(self.bucket[index])
+        for key, value in x.items():
+            if key == key:
+                return value
 
     def contains(self,key):
         index = self.hash(key)
@@ -31,8 +33,8 @@ class Hashtable:
             return False
 
     def keys(self):
-        for elements in self.bucket:
-            return elements
+        if self.bucket is not None:
+            return self.bucket
 
 def repeated_word(sentence):
     word = sentence.split(" ")
@@ -51,8 +53,8 @@ if __name__ == "__main__":
     hashtable.add('age','27')
     hashtable.add('gold','Mal')
     hashtable.add('gold', 'dav')
-    print(hashtable.hash('gold'))
+    print(hashtable.hash('1'))
     print(hashtable.contains('gold'))
     print(hashtable.contains('gold'))
-    print(hashtable.keys())
+    #print(hashtable.keys())
     print(hashtable.get('gold'))
