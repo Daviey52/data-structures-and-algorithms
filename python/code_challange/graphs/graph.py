@@ -44,6 +44,26 @@ class Graph:
             # Arguments: none
             # Returns the total number of nodes in the graph
 
+    def breadth_first(self,vertex):
+        queue = []
+        visited = set()
+        results= []
+        queue.append(vertex)
+        visited.add(vertex)
+
+        while len(queue):
+            current_vertex = queue.pop(0)
+            results.append(vertex.value)
+            neighbors = self.get_neighbor(current_vertex)
+
+            for edge in neighbors:
+                neighbor = edge.vertex
+
+                if neighbor not in visited:
+                    visited.add(neighbor)
+                    queue.append(neighbor)
+        return results
+
 class Vertex:
     def __init__(self,value):
         self.value = value
